@@ -32,10 +32,31 @@ export class AppComponent implements OnInit{
       .subscribe(status => {
         console.log(status)
       })
+
+    //To set or update all the values in the form
+    this.signupForm.setValue({
+      'userData': {
+        'username': 'Max',
+        'email': 'max@test.com'
+      },
+      'gender': 'male',
+      'hobbies': ['cook', 'dance']
+    })
+
+    //To update or set only few values in the form
+    this.signupForm.patchValue({
+      'userData': {
+        'username': 'Alenxander',
+      },
+    })
+
   }
 
   onSubmit() {
     console.log(this.signupForm);
+
+    //Reset the form. We can also choose to reset particular field only
+    this.signupForm.reset();
   }
 
   onAddHobby() {
