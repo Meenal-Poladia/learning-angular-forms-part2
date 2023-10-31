@@ -21,6 +21,17 @@ export class AppComponent implements OnInit{
       'gender': new FormControl('male'),
       'hobbies': new FormArray([])
     })
+    //This is fired whenever there is a change in the value of the input. At every keystroke
+    this.signupForm.valueChanges
+      .subscribe(value => {
+        console.log(value)
+      })
+
+    //This can be used to see if the field is valid or invalid. It can be hooked to either one input or entire form
+    this.signupForm.statusChanges
+      .subscribe(status => {
+        console.log(status)
+      })
   }
 
   onSubmit() {
